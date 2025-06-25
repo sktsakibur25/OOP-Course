@@ -17,6 +17,7 @@ public class Practice_1 {
         printResults(resultList);
         scanner.close();
     }
+    
     public static List<String> generateNames() {
         String[] dummy_names = {
             "Alice",
