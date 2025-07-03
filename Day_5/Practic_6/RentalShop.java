@@ -41,6 +41,33 @@ public class RentalShop {
 
             try {
 
+                System.out.println("Pick an option:");
+                System.out.println("1. Rent a car");
+                System.out.println("2. Return a car");
+                System.out.println("3. Exit");
+                String choice = System.console().readLine().trim();
+                if (choice.equalsIgnoreCase("exit") || choice.equals("3")) {
+                    System.out.println("Thank you for visiting the Car Rental Shop!");
+                    break;
+                } else if (!choice.equals("1") && !choice.equals("2")) {
+                    throw new InvalidDateException("Invalid choice. Please enter 1, 2, or 3.");
+                }
+
+                if (choice.equals("2")) {
+                    System.out.println("Enter the car ID you want to return: ");
+                    String carId = System.console().readLine().trim();
+                    Boolean isReturned = returnCar(cars, carId);
+                    if (isReturned) {
+                        System.out.println("Car returned successfully.");
+                    } else {
+                        System.out.println("Car not found with ID: " + carId);
+                    }
+                    continue;
+                }
+
+
+
+
                 System.out.println("Enter your car rent starting date (YYYY-MM-DD):  ");
                 String input = System.console().readLine();
                 LocalDate startDate = LocalDate.parse(input);
@@ -117,8 +144,8 @@ public class RentalShop {
                 "Price per Day");
         boolean found = false;
         for (Cars car : cars) {
-            if (car.getRentalStartDate() == null || car.getRentalEndDate() == null ||
-                    (car.getRentalEndDate().isBefore(startDate) || car.getRentalStartDate().isAfter(endDate))) {
+            if (car.getRentalStartDate() == null || car.getRentalEndDate() == null || car.getMaintenanceEndDate() == null ||
+                    (car.getMaintenanceEndDate().isBefore(startDate) || car.getRentalStartDate().isAfter(endDate))) {
                 System.out.printf("| %-4s | %-20s | %-10s | %-10s | $%-14.2f |\n", car.getId(), car.getModel(),
                         car.getColor(), car.getCarType(), car.getPricePerDay());
                 found = true;
@@ -135,4 +162,16 @@ public class RentalShop {
             throw new InvalidDateException("The date cannot be in the past.");
         }
     }
+
+    private static Boolean returnCar(List<Cars> cars, String carId){
+        for (Cars car : cars) {
+            if (car.getId().equalsIgnoreCase(carId)) {
+                car.setRentalEndDate(null);
+                car.setRentalEndDate(null);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

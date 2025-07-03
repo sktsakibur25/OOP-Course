@@ -8,10 +8,10 @@ public class Cars {
     private String color;
     private CarType carType;
     private Double pricePerDay;
-    private Boolean isOnMaintanance;
     private Integer maintananceDurationInDays;
     private LocalDate rentalStartDate;
     private LocalDate rentalEndDate;
+    private LocalDate maintananceEndDate;
 
     public Cars(String model, String color, CarType carType, Double pricePerDay, Integer maintananceDurationInDays) {
         this.id = UUID.randomUUID().toString().substring(0, 4).toUpperCase();
@@ -50,8 +50,9 @@ public class Cars {
     public Double getPricePerDay() {
         return pricePerDay;
     }
-    public Integer getMaintananceDurationInDays() {
-        return maintananceDurationInDays;
+
+    public LocalDate getMaintenanceEndDate(){
+        return maintananceEndDate;
     }
 }
 
