@@ -128,7 +128,6 @@ public class RentalShop {
             if (car.getId().equalsIgnoreCase(carId)) {
                 car.setRentalStartDate(startDate);
                 car.setRentalEndDate(endDate);
-
                 System.out.printf("You have successfully rented the %s %s from %s to %s. %d Days\n",
                         car.getColor(), car.getModel(), startDate, endDate, daysRenting);
                 System.out.printf("Total rental cost: $%.2f\n", car.getPricePerDay() * daysRenting);

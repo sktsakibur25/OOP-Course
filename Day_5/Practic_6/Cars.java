@@ -33,6 +33,7 @@ public class Cars {
     }
     public void setRentalEndDate(LocalDate rentalEndDate) {
         this.rentalEndDate = rentalEndDate;
+        this.maintananceEndDate = rentalEndDate.plusDays(maintananceDurationInDays);
     }
 
     public String getId() {
