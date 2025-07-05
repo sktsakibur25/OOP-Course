@@ -26,7 +26,7 @@ public class SchoolSystem {
             // Assign new students
             List<String> newStudents = List.of("Frank", "Grace");
             assignment.assignStudents(newStudents);
-            System.out.println("New students assigned successfully");
+            System.out.println("New students assigned successfully : "+newStudents+" to "+assignment.getName() +"\n");
 
             assignment.gradeAssignment("Alice", 40.0);
             assignment.gradeAssignment("Bob", 35.0);

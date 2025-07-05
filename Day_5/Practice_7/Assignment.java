@@ -120,5 +120,8 @@ public class Assignment {
         System.out.println();
     }
 
+    public String getName() {
+        return name;
+    }
 
 }
