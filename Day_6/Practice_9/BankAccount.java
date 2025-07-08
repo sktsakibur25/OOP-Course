@@ -1,4 +1,4 @@
-package Day_6.BankProblem;
+package Day_6.Practice_9;
 
 import Day_2.BankProblem.Exceptions.InsufficientFundException;
 import Day_2.BankProblem.Exceptions.InvalidAmountException;
