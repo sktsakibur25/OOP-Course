@@ -3,7 +3,6 @@ package Day_7.Practice_10;
 import java.time.LocalDate;
 import java.util.Random;
 
-import javax.security.auth.login.CredentialExpiredException;
 
 import Day_7.Practice_10.Exceptions.InvalidAmountException;
 import Day_7.Practice_10.Exceptions.CreditCardLimitException;
@@ -13,6 +12,7 @@ import Day_7.Practice_10.Exceptions.CreditCardExpiredException;
 public class CreditCard {
     private String cardNumber;
     private LocalDate expiryDate;
+    @SuppressWarnings("unused")
     private Integer cvc;
     private final Double MAXIMUM_LIMIT = 500000.0;
     private final Double DAILY_LIMIT = 100000.0;
