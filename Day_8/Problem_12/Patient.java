@@ -31,20 +31,21 @@ public class Patient {
     }
 
     public List<Appointment> getAppointmentList() {
-        if(this.id == null || this.doctor == null) {
+        if (this.id == null || this.doctor == null) {
             return new ArrayList<>();
-        }else{
+        } else {
             return doctor.getAppointmentsByPatientId(this.id);
         }
     }
 
-
-public String printInfo() {
-        return "Patient ID: " + id + ", Name: " + name + ", Date of Birth: " + dateOfBirth + ", Contact Number: " + contactNumber + ", Current Medication: " + currentMedication + ", Doctor: " + (doctor != null ? doctor.getName() : "No doctor assigned");
+    public String printInfo() {
+        return "Patient ID: " + id + ", Name: " + name + ", Date of Birth: " + dateOfBirth + ", Contact Number: "
+                + contactNumber + ", Current Medication: " + currentMedication + ", Doctor: "
+                + (doctor != null ? doctor.getName() : "No doctor assigned");
     }
 
     protected void assignDoctor(Doctor doctor, Integer patient_id) throws DoctorAlreadyAssignedException {
-        if(this.doctor == null && this.id == null) {
+        if (this.doctor == null && this.id == null) {
             this.doctor = doctor;
             this.id = patient_id;
         } else {
